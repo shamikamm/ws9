@@ -1,224 +1,0 @@
-Script started on 2022-11-04 20:46:39-04:00
-]0;shamika@sjsu:/mnt/scratch/shamika[shamika@sjsu shamika]$ history -c
-]0;shamika@sjsu:/mnt/scratch/shamika[shamika@sjsu shamika]$ c[Kmkdir a3
-]0;shamika@sjsu:/mnt/scratch/shamika[shamika@sjsu shamika]$ cp [K[K[Kls
-[0m[38;5;33ma3[0m      amazon_reviews_us_Books_v1_02.tsv   downloaded_tweets_extend_original_nolf2.tsv
-A3.txt  cmds.log                            [38;5;33mws8[0m
-a4.txt  downloaded_tweets_extend_nolf2.tsv  Ws8.txt
-]0;shamika@sjsu:/mnt/scratch/shamika[shamika@sjsu shamika]$ cp downloaded_tweets_extend_nolf2.tsv a3
-]0;shamika@sjsu:/mnt/scratch/shamika[shamika@sjsu shamika]$ cp downloaded_tweets_extend_original_nolf2.tsv a3
-]0;shamika@sjsu:/mnt/scratch/shamika[shamika@sjsu shamika]$ cd a3/
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ ls
-downloaded_tweets_extend_nolf2.tsv  downloaded_tweets_extend_original_nolf2.tsv
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ head downloaded_tweets_extend_nolf2.tsv 
-id	author	date	hashtags	referenced	in_reply_to_user_id	public_metrics	text_nolf
-1520543208614334465	308045021	2022-04-30 23:18:45+00:00	awesomePeopleOnTwitter				"On top of the chocolate, @benjean2 also included these for my Spanish learning child. I have another child going into Spanish for 2 years and these books, lovingly given, will be out to good use. I hope my kids will be worthy of her kindness. ❤️ #awesomePeopleOnTwitter https://t.co/rGiSjqZXoe"
-1520503332246376448	308045021	2022-04-30 20:40:18+00:00	"journalism,NPR"	[<ReferencedTweet id=1513654494504136709 type=retweeted]			RT @HPM_ChristinaL: Really proud of our reporters. Yet another recognition of their work. Way to go! #journalism #NPR #AwardWinningJournali…
-1520503283470815232	308045021	2022-04-30 20:40:07+00:00		[<ReferencedTweet id=1513774168348704770 type=retweeted]			RT @HPM_ChristinaL: “We as a society have reached a very ugly place where empathy is a foreign concept and where we refuse to view professi…
-1520168272896962562	308045021	2022-04-29 22:28:54+00:00	"LC,exercise"	[<ReferencedTweet id=1520168270283915264 type=replied_to]	308045021		Workouts &amp; ample sleep. Sigh….this is great news and bad. Maybe I should switch to chi gong or pure yoga. Biking can be 2x’s/week. Lots to think abt. But I’m happier wo the inflammation induced pain. Hopefully my appt w a rheumatologist will yield answers #LC #exercise
-1520053412968210432	308045021	2022-04-29 14:52:29+00:00	buddhism				This section is very profound. Many atrocities were committed in the name of “god”. Could this be another reason that no wars was fought in the name of Buddha? #buddhism https://t.co/I6XwhH9wnj
-1520044444204032001	308045021	2022-04-29 14:16:51+00:00	buddhism				"I took a break from the book Imperial Reckoning, to reconnect w presence and grounding. Human suffering &amp; violence can rob me of peace &amp; balance. My new favorite book is this ..:: #buddhism https://t.co/GNoR5ZFhVs"
-1519870977311715328	308045021	2022-04-29 02:47:33+00:00	obgyntwitter	[<ReferencedTweet id=1519864927997075458 type=retweeted]			RT @falnyx: I sadly cannot apply to this but if you are an obgyn applicant that went unmatched and do not require visa #obgyntwitter #obgyn…
-1519788687957049344	308045021	2022-04-28 21:20:34+00:00	busymom				"Day 4 of no exercise and bilateral hand inflammation has remained the same. Sighhhhhhh…  oh well. I wish I could say that I’ve been taking it easy, but a busy mom is never out of things to do around the house. #busymom https://t.co/d2M4CGiiPa"
-1519770137024471040	308045021	2022-04-28 20:06:51+00:00		[<ReferencedTweet id=1519742972186800130 type=retweeted]			"RT @YesWeCan4Us: @joncoopertweets ICYMI: Former Supreme Court Justice Kennedy’s son, close with Ivanka Trump &amp; Jared Kushner, helped Trump…"
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ grep "replied_to" downloaded_tweets_extend_nolf2.tsv > replied_to.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ awk -F "\t" {print $6,$2}' replied_to.txt |sort -n > directional_graph.txt
-> ^C
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ awk -F "\t" '{print $6,$2}' replied_to.txt |sort -n > directional_graph.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ ls
-directional_graph.txt  downloaded_tweets_extend_nolf2.tsv  downloaded_tweets_extend_original_nolf2.tsv  replied_to.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ ha[Kead directional_graph.txt 
-9.43977E+17 614600545
-12 1387010761994682371
-3832 804582780298412032
-3832 804582780298412032
-3832 804582780298412032
-3832 804582780298412032
-3832 804582780298412032
-3832 804582780298412032
-3832 804582780298412032
-3832 832019161454817280
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ awk -F "\t" '{print $1}' directional_graph.txt |uniq -c [K[K[K[K[K[K[K[Ksort |uniq -c |sort -k1 -n > reply_cluster.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ awk '{if ($1 [K>=3) {print}'[K}' .[K> p2.txt
-^C
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ awk '{if ($1>=3) {print}}' reply_cluster.txt > p2.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ ls
-directional_graph.txt  downloaded_tweets_extend_nolf2.tsv  downloaded_tweets_extend_original_nolf2.tsv  p2.txt  replied_to.txt  reply_cluster.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ head p2.txt
-      3 1005846500583321601 1308267623327518725
-      3 1020602380096696320 578601744
-      3 1029041185808109568 614600545
-      3 1066773270773547008 838381908656603144
-      3 1077214808 2530758806
-      3 1094713876132872192 1263391922657337345
-      3 1108565574 2574271742
-      3 1109045045649424386 1060440219097423872
-      3 117122035 804582780298412032
-      3 1176522535531360257 41186732
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ git init
-[33mhint: Using 'master' as the name for the initial branch. This default branch name[m
-[33mhint: is subject to change. To configure the initial branch name to use in all[m
-[33mhint: of your new repositories, which will suppress this warning, call:[m
-[33mhint: [m
-[33mhint: 	git config --global init.defaultBranch <name>[m
-[33mhint: [m
-[33mhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and[m
-[33mhint: 'development'. The just-created branch can be renamed via this command:[m
-[33mhint: [m
-[33mhint: 	git branch -m <name>[m
-Initialized empty Git repository in /mnt/scratch/shamika/a3/.git/
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ tail p2.txt
-     20 804582780298412032 804582780298412032
-     21 1236324668640047105 302984766
-     21 1373739644 1373739644
-     25 19739126 1921951394
-     25 492736486 302984766
-     27 1387010761994682371 1387010761994682371
-     28 956266072440635392 1492690652529889282
-     31 29447428 29447428
-     35 308045021 308045021
-     95 1229752606714728454 1229752606714728454
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ wc p2.txt
- 241  723 8222 p2.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ /etc/gnuplot-5.4.4/src/gnuplot
-
-	G N U P L O T
-	Version 5.4 patchlevel 4    last modified 2022-07-10 
-
-	Copyright (C) 1986-1993, 1998, 2004, 2007-2022
-	Thomas Williams, Colin Kelley and many others
-
-	gnuplot home:     http://www.gnuplot.info
-	faq, bugs, etc:   type "help FAQ"
-	immediate help:   type "help"  (plot window: hit 'h')
-
-Terminal type is now 'unknown'
-gnuplot> set terminal svg
-
-Terminal type is now 'svg'
-Options are 'size 600,480 fixed enhanced font 'Arial,12' butt dashlength 1.0 '
-gnuplot> set output "graph.txt"
-gnuplot> set style histogram
-gnuplot> set tu  itle "Clusters           ter Size"
-gnuplot> set style fill solid
-gnuplot> set xlabel "Number of Repies                                # of Replies"
-gnuplot> set ylabel "Amount if       of Cluster of Replies"
-gnuplot> plot "p2.txt"
-gnuplot> exit
-         warning: Cannot open file to save history, using standard output.
-
-    1   set output A3.svg
-    2   set output "A3.svg"
-    3   set style data histograms
-    4   plot 'P2.txt' using 1:xtic(2)
-    5   title 'Sizes of Cluster'
-    6   plot 'P2.txt' using 1:xtic(2) title 'Sizes of Cluster'
-    7   set terminal xterm
-    8   set output "a3.xterm"
-    9   plot 'P2.txt' 
-   10   plot p2_1.txt
-   11   set output "histogram.svg"
-   12   set ylabel Nuber of Occurances
-   13   set ylabel "Number of Occurances"
-   14   set xlabel "Number of Replies"
-   15   set title "Clusters of Each Size"
-   16   plot 'P2.txt'
-   17   binwidth=1
-   18   set yrange [0:120]
-   19   plot 'P2.txt' using (bin($1, binwidth))
-   20   set output 'file.svg'
-   21   set style histogram
-   22   binwidth=1
-   23   set yrange [0:110]
-   24   set boxwidth binwidth
-   25   set terminalsvg
-   26   set title 'Occurances vs Replies'
-   27   plot P2.txt
-   28   plot 'directional_graph.txt'
-   29   set binwidth=1
-   30   set yrange[0:110]
-   31   plot 'P2.txt'
-   32   set output "file.svg"
-   33   set style histogram rowstacked
-   34   plot 'P2_1.txt'
-   35   ls
-   36   set output 'hist.svg'
-   37   binwidth=1
-   38   set style fill solid
-   39   plot r.txt
-   40   rm binwidth=1
-   41   set output file.svg
-   42   set style set style fill solid
-   43   set style rowstacked
-   44   set style histogram rowstacked 
-   45   set style histogram clustered
-   46   plot 'r.txt'
-   47   q
-   48   set output 'histogram.svg'
-   49   set style data histogram
-   50   set stule fill solid
-   51   plot 'problem_2.txt'
-   52   set terminal svg
-   53   set output "graph.txt"
-   54   set style histogram
-   55   set title "Cluster Size"
-   56   set style fill solid
-   57   set xlabel "# of Replies"
-   58   set ylabel "Amount of Cluster of Replies"
-   59   plot "p2.txt"
-   60   exit
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ ls
-directional_graph.txt               downloaded_tweets_extend_original_nolf2.tsv  p2.txt          reply_cluster.txt
-downloaded_tweets_extend_nolf2.tsv  graph.txt                                    replied_to.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ head replied_to.txt 
-1520168272896962562	308045021	2022-04-29 22:28:54+00:00	"LC,exercise"	[<ReferencedTweet id=1520168270283915264 type=replied_to]	308045021		Workouts &amp; ample sleep. Sigh….this is great news and bad. Maybe I should switch to chi gong or pure yoga. Biking can be 2x’s/week. Lots to think abt. But I’m happier wo the inflammation induced pain. Hopefully my appt w a rheumatologist will yield answers #LC #exercise
-1518605841624190976	308045021	2022-04-25 15:00:21+00:00	"TakingABreak,exercise"	[<ReferencedTweet id=1518605836607799296 type=replied_to]	308045021		Or will this be me by the end of the week? We’ll see. 😬😬 #TakingABreak #exercise https://t.co/XuT110Ht5R
-1516610008082960389	308045021	2022-04-20 02:49:37+00:00	authenticChineseFood	[<ReferencedTweet id=1516610006992535552 type=replied_to]	308045021		"Over cooked. As U can see from my picture, the green onions has a vibrant green &amp; just a tad softer from hard. Coated in sauce. Remember to add tiny bits of water as U cook, to make sure the chow fun doesn’t stick to the pan &amp; remains soft.  Enjoy! #authenticChineseFood"
-1516601473219629056	308045021	2022-04-20 02:15:42+00:00	MyBigFatGreekWedding	[<ReferencedTweet id=1516408716442038272 type=replied_to]	42052422		@NiaVardalos You Persevered ..! #MyBigFatGreekWedding is one of my hubby’s favorite films. Keep writing. Keep believing in yourself. Congrats on ur persistence!
-1513250402719916044	308045021	2022-04-10 20:19:45+00:00	buddhism	[<ReferencedTweet id=1513250400845152258 type=replied_to]	308045021		"He’s followed, embraced total rejection or annihilation of the self…I rather prefer Gotama’s approach. It brings more compRRRRRRion &amp; empathy rather than total removal humanity. #buddhism"
-1512981602254655488	308045021	2022-04-10 02:31:38+00:00	"LC,COVID"	[<ReferencedTweet id=1512981600929202181 type=replied_to]	308045021		"It still doesn't take away the level of concern over it. After all this time, I thought I was spared from most of it...but guess not. I'm hoping this won't be a regular thing...cause it was freaky. The both times it happened, was when I was falling asleep. #LC #COVID"
-1512061808277819399	308045021	2022-04-07 13:36:42+00:00	"Tired,EndThisNightmare,COVID"	[<ReferencedTweet id=1512061807225188355 type=replied_to]	308045021		Get me out of this hell….I have LC &amp; don’t want to get infected again…nor would I want that for my family. Would the DOJ please hold the orange RRRRRR &amp; his minions accountable? So that they’re not out there spreading lies??? #Tired #EndThisNightmare #COVID
-1511160794154680322	308045021	2022-04-05 01:56:23+00:00	"thoughts,democracy"	[<ReferencedTweet id=1511160792506421252 type=replied_to]	308045021		"thoughts I've been mulling over for a while now...the frenzy of the religious right is very concerning, and if we STILL don't vote....I fear our country will see a very dark future.  #thoughts #democracy"
-1509740841056841730	308045021	2022-04-01 03:54:00+00:00	"latenightthoughts,beauty"	[<ReferencedTweet id=1509740840142450688 type=replied_to]	308045021		It’s amazing how happy I am. My heart is full. My life is full.   Goodnight. ❤️  #latenightthoughts #beauty
-1508410802474303494	308045021	2022-03-28 11:48:54+00:00	"MyThoughts,NoReasonForViolence"	[<ReferencedTweet id=1508410801144668167 type=replied_to]	308045021		"Bc She was rude or said something offensive to anger or annoy him. Some jokes r ok while some go too far. In any event, I believe this should’ve been handled more diplomatically. #MyThoughts #NoReasonForViolence"
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ awk -F "\t" '{print $4}' replies_to.txt |sort |uniq -c | sort -n |tail -30 > hashtags .txt
-tail: cannot open '.txt' for reading: No such file or directory
-awk: fatal: cannot open file `replies_to.txt' for reading (No such file or directory)
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ awk -F "\t" '{print $4}' replied_to.txt |sort |uniq -c | sort -n |tail -30 > hashtags.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ ls
-directional_graph.txt               downloaded_tweets_extend_original_nolf2.tsv  hashtags      p2.txt          reply_cluster.txt
-downloaded_tweets_extend_nolf2.tsv  graph.txt                                    hashtags.txt  replied_to.txt
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ cat hSH[K[Kashtags.txt
-     13 MLKDay
-     13 "PutinHitler,StandWithUkraine"
-     14 "COVID19BC,bcpoli"
-     14 ScottytheFailure
-     15 "bcpoli,bced"
-     15 FAFO
-     15 "FBPE,FollowBackFriday,TakeBackDemocracy"
-     15 ToyFair2022
-     16 ClimateEmergency
-     17 VaccineSideEffects
-     18 CrazyTown
-     18 RejoinEU
-     18 StandWithUkraine
-     19 COVIDisAirborne
-     19 TrumpGQPdeathKKKult
-     21 "FBPE,FBPPR,FollowBackFriday"
-     25 Putin
-     26 btc
-     27 TEAMMOLLY
-     29 N95
-     31 Ukraine
-     35 DowningStreetParties
-     42 Ottawa
-     49 LongCovid
-     50 "J6T,J6TraitorSaysWhat"
-     69 ClimateCrisis
-    105 "PutinHitler,StandWithUkraine,PutinHitler,PutinWarCriminal,StopPutinNOW,RussiaSanctions,BoycottRussia"
-    106 BoycottATP
-    106 COVID19
-    832 "FBPE,FollowBackFriday"
-]0;shamika@sjsu:/mnt/scratch/shamika/a3[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ [K[shamika@sjsu a3]$ exit
-
-Script done on 2022-11-04 21:12:56-04:00
